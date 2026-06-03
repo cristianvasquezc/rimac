@@ -118,7 +118,3 @@
   --font-sans: 'BR Sonoma', system-ui, sans-serif;
   --font-lato: 'Lato', system-ui, sans-serif;
 }
-
-* {
-  font-family: var(--font-sans);
-}
