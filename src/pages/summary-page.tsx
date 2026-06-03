@@ -7,6 +7,7 @@ function SummaryPage() {
       <Breadcrumb
         currentStep={2}
         href='/planes'
+        hidden
       />
 
       <div className='w-full max-w-4xl space-y-5 px-6 mx-auto'>
