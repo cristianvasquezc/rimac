@@ -1,4 +1,4 @@
-import type { User } from '@/types';
+import type { PlansResponse, User } from '@/types';
 import axios from 'axios';
 
 const api = axios.create({
@@ -12,6 +12,13 @@ const api = axios.create({
 export const userService = {
   async getUser(): Promise<User> {
     const response = await api.get<User>('/user.json');
+    return response.data;
+  },
+};
+
+export const plansService = {
+  async getPlans(): Promise<PlansResponse> {
+    const response = await api.get<PlansResponse>('/plans.json');
     return response.data;
   },
 };
