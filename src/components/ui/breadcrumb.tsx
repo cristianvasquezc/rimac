@@ -4,6 +4,7 @@ import React from 'react';
 
 interface BreadcrumbProps {
   currentStep: 1 | 2;
+  href: string;
 }
 
 const steps = [
@@ -17,7 +18,7 @@ const steps = [
   },
 ];
 
-export const Breadcrumb = ({ currentStep }: BreadcrumbProps) => {
+export const Breadcrumb = ({ currentStep, href }: BreadcrumbProps) => {
   return (
     <div>
       <div className='w-full bg-[#EDEFFC] hidden md:flex items-center justify-center py-4 px-6 hii'>
@@ -69,7 +70,7 @@ export const Breadcrumb = ({ currentStep }: BreadcrumbProps) => {
       <div className='w-full max-w-4xl p-4 md:py-10 px-6 mx-auto border-b md:border-none border-border mb-8 md:mb-0'>
         <div className='flex items-center gap-4'>
           <a
-            href='/'
+            href={href}
             className='w-fit flex item-center justify-start gap-2'>
             <span className='w-5 h-5 flex items-center justify-center rounded-full text-sm border-2 border-[#A9AFD9] md:border-[#4F4FFF]'>
               <ChevronLeftIcon className='size-4 text-[#4F4FFF]' />
