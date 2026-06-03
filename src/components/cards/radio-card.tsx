@@ -26,7 +26,7 @@ export const RadioCard = ({
     <FieldLabel
       htmlFor={id}
       className='w-full max-w-63 border-none'>
-      <div className='w-full pt-4 pb-10 px-6 rounded-3xl bg-white shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)]'>
+      <div className='w-full pt-4 pb-10 px-6 rounded-3xl bg-white shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)]  border-3 border-transparent has-data-[state=checked]:border-[#03050F]'>
         <Field
           orientation='horizontal'
           className='relative'>
@@ -40,7 +40,7 @@ export const RadioCard = ({
             </FieldDescription>
           </FieldContent>
           <RadioGroupItem
-            className='size-6 top-0 right-0 absolute'
+            className='group/radio-group-item size-6 top-0 right-0 absolute'
             value={value}
             id={id}
           />
