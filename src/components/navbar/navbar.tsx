@@ -9,12 +9,12 @@ export const Navbar = () => {
           <Logo />
         </a>
         <div className='flex items-center space-x-4'>
-          <p className='font-semibold text-xs tracking-wide hidden md:block'>
+          <p className='font-semibold text-xs tracking-[0.2px] hidden md:block'>
             ¡Compra por este medio!
           </p>
           <a
             href='tel:014116001'
-            className='flex items-center justify-center gap-2 font-bold text-lg leading-5 tracking-wide'>
+            className='flex items-center justify-center gap-2 font-bold text-lg leading-5 tracking-[0.4px]'>
             <PhoneIcon className='size-5' />
             (01) 411 6001
           </a>
