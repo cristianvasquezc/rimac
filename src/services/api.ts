@@ -1,3 +1,4 @@
+import type { User } from '@/types';
 import axios from 'axios';
 
 const api = axios.create({
@@ -7,3 +8,10 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+export const userService = {
+  async getUser(): Promise<User> {
+    const response = await api.get<User>('/user.json');
+    return response.data;
+  },
+};
