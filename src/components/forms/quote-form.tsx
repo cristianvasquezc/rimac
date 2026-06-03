@@ -4,6 +4,7 @@ import {
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field';
+import { useUser } from '@/hooks/useApi';
 import { quoteFormSchema } from '@/schemas/quote-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
@@ -25,8 +26,10 @@ export const QuoteForm = () => {
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('Form submitted with data:', data);
+  const { fetchUser, isLoading } = useUser();
+
+  const onSubmit = async (data: FormValues) => {
+    await fetchUser(data);
   };
 
   return (
@@ -132,8 +135,9 @@ export const QuoteForm = () => {
         <Button
           type='submit'
           rounded='full'
-          size='xl'>
-          Cotiza aquí
+          size='xl'
+          disabled={isLoading}>
+          {isLoading ? 'Cargando...' : 'Cotiza aquí'}
         </Button>
       </form>
     </div>
