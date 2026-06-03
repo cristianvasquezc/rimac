@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import MainLayout from './layouts/main-layout';
 import MainPage from './pages/main-page';
-import Planes from './pages/plans-page';
-import Resumen from './pages/summary-page';
+import PlansPage from './pages/plans-page';
 
 function App() {
   return (
@@ -16,11 +15,7 @@ function App() {
         />
         <Route
           path='/planes'
-          element={<Planes />}
-        />
-        <Route
-          path='/resumen'
-          element={<Resumen />}
+          element={<PlansPage />}
         />
       </Route>
     </Routes>
