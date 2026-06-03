@@ -25,16 +25,18 @@ export const RadioCard = ({
   return (
     <FieldLabel
       htmlFor={id}
-      className='w-full max-w-63 border-none'>
+      className='w-full md:max-w-63 border-none'>
       <div className='w-full pt-4 pb-10 px-6 rounded-3xl bg-white shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)]  border-3 border-transparent has-data-[state=checked]:border-[#03050F]'>
         <Field
           orientation='horizontal'
           className='relative'>
           <FieldContent className='space-y-2 pt-6'>
-            <div className='size-12'>{icon}</div>
-            <FieldTitle className='font-black text-xl leading-7 tracking-[-0.2px]'>
-              {title}
-            </FieldTitle>
+            <div className='flex flex-row md:flex-col items-start gap-2'>
+              <div className='[&>svg]:size-8 md:[&>svg]:size-12'>{icon}</div>
+              <FieldTitle className='font-black text-xl leading-7 tracking-[-0.2px]'>
+                {title}
+              </FieldTitle>
+            </div>
             <FieldDescription className='font-normal text-xs leading-5 tracking-[0.2px]'>
               {description}
             </FieldDescription>
