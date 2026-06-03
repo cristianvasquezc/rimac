@@ -3,10 +3,10 @@ import { Navbar } from '../components/navbar/navbar';
 
 function MainLayout() {
   return (
-    <>
+    <div className='text-foreground'>
       <Navbar />
       <Outlet />
-    </>
+    </div>
   );
 }
 
