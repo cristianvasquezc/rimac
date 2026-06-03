@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';
 import { Button } from '../ui/button';
+import { Checkbox } from '../ui/checkbox';
 import { Input } from '../ui/input';
 
 type FormValues = z.infer<typeof quoteFormSchema>;
@@ -19,6 +20,8 @@ export const QuoteForm = () => {
     defaultValues: {
       dni: '',
       phone: '',
+      privacyPolicy: false,
+      marketingConsent: false,
     },
   });
 
@@ -31,7 +34,7 @@ export const QuoteForm = () => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className='space-y-6'>
-        <FieldGroup>
+        <FieldGroup className='gap-4'>
           <Controller
             name='dni'
             control={form.control}
@@ -75,11 +78,57 @@ export const QuoteForm = () => {
             )}
           />
         </FieldGroup>
-        <div>
-          <p className='font-semibold text-xs leading-5 tracking-[0.1px]'>
+
+        <div className='space-y-3'>
+          <FieldGroup className='gap-3'>
+            <Controller
+              name='privacyPolicy'
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field
+                  orientation='horizontal'
+                  data-invalid={fieldState.invalid}>
+                  <Checkbox
+                    id='checkout-privacy-policy'
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    aria-invalid={fieldState.invalid}
+                  />
+                  <FieldLabel
+                    htmlFor='checkout-privacy-policy'
+                    className='font-normal text-xs leading-5 tracking-[0.1px]'>
+                    Acepto la Política de Privacidad
+                  </FieldLabel>
+                </Field>
+              )}
+            />
+            <Controller
+              name='marketingConsent'
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field
+                  orientation='horizontal'
+                  data-invalid={fieldState.invalid}>
+                  <Checkbox
+                    id='checkout-marketing-consent'
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    aria-invalid={fieldState.invalid}
+                  />
+                  <FieldLabel
+                    htmlFor='checkout-marketing-consent'
+                    className='font-normal text-xs leading-5 tracking-[0.1px]'>
+                    Acepto la Política de Comunicaciones Comerciales
+                  </FieldLabel>
+                </Field>
+              )}
+            />
+          </FieldGroup>
+          <p className='font-semibold text-xs leading-5 tracking-[0.1px] underline'>
             Aplican Términos y Condiciones.
           </p>
         </div>
+
         <Button
           type='submit'
           rounded='full'
