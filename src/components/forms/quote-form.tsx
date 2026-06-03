@@ -8,6 +8,7 @@ import { quoteFormSchema } from '@/schemas/quote-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';
+import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 
 type FormValues = z.infer<typeof quoteFormSchema>;
@@ -27,7 +28,9 @@ export const QuoteForm = () => {
 
   return (
     <div>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='space-y-6'>
         <FieldGroup>
           <Controller
             name='dni'
@@ -72,7 +75,17 @@ export const QuoteForm = () => {
             )}
           />
         </FieldGroup>
-        <button type='submit'>Submit</button>
+        <div>
+          <p className='font-semibold text-xs leading-5 tracking-[0.1px]'>
+            Aplican Términos y Condiciones.
+          </p>
+        </div>
+        <Button
+          type='submit'
+          rounded='full'
+          size='xl'>
+          Cotiza aquí
+        </Button>
       </form>
     </div>
   );
