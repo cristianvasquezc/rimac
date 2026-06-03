@@ -3,7 +3,7 @@ import { Separator } from '../components/ui/separator';
 
 function MainPage() {
   return (
-    <div className='font-sans w-full bg-white px-6'>
+    <div className='w-full bg-white px-6'>
       <div className='flex w-full max-w-6xl mx-auto md:pt-8 pb-8'>
         <div className='w-full max-w-120 hidden md:block'>
           <img
