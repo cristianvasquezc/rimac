@@ -7,7 +7,10 @@ import { RadioGroup } from '@/components/ui/radio-group';
 function PlansPage() {
   return (
     <div className='font-lato bg-white pb-10'>
-      <Breadcrumb currentStep={1} />
+      <Breadcrumb
+        currentStep={1}
+        href='/'
+      />
       <div className='w-full flex flex-col items-center justify-center gap-5 px-6'>
         <div className='space-y-8'>
           <div className='flex flex-col items-center gap-2'>
