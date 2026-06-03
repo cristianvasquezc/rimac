@@ -114,6 +114,7 @@
 
 @theme {
   --color-foreground: #03050f;
+  --color-border: #5e6488;
   --font-sans: 'BR Sonoma', system-ui, sans-serif;
 }
 
