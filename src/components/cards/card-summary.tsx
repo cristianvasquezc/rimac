@@ -1,7 +1,23 @@
+import type { Plan, QuoteFormData, User, UserType } from '../../types';
 import { GlFamilySolid } from '../Icons';
 import { Separator } from '../ui/separator';
 
-export const CardSummary = () => {
+interface CardSummaryProps {
+  user: User;
+  formData: QuoteFormData;
+  selectedPlan: Plan;
+  userType: UserType | null;
+}
+
+export const CardSummary = ({
+  user,
+  formData,
+  selectedPlan,
+  userType,
+}: CardSummaryProps) => {
+  const discount = userType === 'for-someone-else' ? 0.05 : 0;
+  const finalPrice = selectedPlan.price * (1 - discount);
+
   return (
     <div className='w-full bg-white py-6 px-8 space-y-4 rounded-3xl shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)]'>
       <div>
@@ -10,8 +26,8 @@ export const CardSummary = () => {
         </p>
         <div className='flex items-center gap-3'>
           <GlFamilySolid />
-          <p className='font-bold  text-xl leading-7 tracking-[-0.2px]'>
-            Rocio Miranda Díaz
+          <p className='font-bold text-xl leading-7 tracking-[-0.2px]'>
+            {user.name} {user.lastName}
           </p>
         </div>
       </div>
@@ -23,10 +39,10 @@ export const CardSummary = () => {
           Responsable de pago
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
-          DNI: 444888888
+          DNI: {formData.dni}
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
-          Celular: 5130216147
+          Celular: {formData.phone}
         </p>
       </div>
 
@@ -35,10 +51,10 @@ export const CardSummary = () => {
           Plan elegido
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
-          Plan en Casa y Clínica
+          {selectedPlan.name}
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
-          Costo del Plan: $99 al mes
+          Costo del Plan: ${finalPrice} al mes
         </p>
       </div>
     </div>
