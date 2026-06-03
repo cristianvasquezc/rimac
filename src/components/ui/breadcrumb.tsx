@@ -5,6 +5,7 @@ import React from 'react';
 interface BreadcrumbProps {
   currentStep: 1 | 2;
   href: string;
+  hidden?: boolean;
 }
 
 const steps = [
@@ -18,9 +19,9 @@ const steps = [
   },
 ];
 
-export const Breadcrumb = ({ currentStep, href }: BreadcrumbProps) => {
+export const Breadcrumb = ({ currentStep, href, hidden }: BreadcrumbProps) => {
   return (
-    <div>
+    <div className={hidden ? 'hidden md:block' : 'w-full'}>
       <div className='w-full bg-[#EDEFFC] hidden md:flex items-center justify-center py-4 px-6 hii'>
         <ul className='list-none flex items-center justify-center gap-4'>
           {steps.map((step, index) => {
