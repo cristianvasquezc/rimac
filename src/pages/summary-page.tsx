@@ -1,7 +1,23 @@
-import { CardSummary } from '@/components/cards/card-summary';
-import { Breadcrumb } from '@/components/ui/breadcrumb';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CardSummary } from '../components/cards/card-summary';
+import { Breadcrumb } from '../components/ui/breadcrumb';
+import { useAppStore } from '../store/useAppStore';
 
 function SummaryPage() {
+  const navigate = useNavigate();
+  const { user, quoteFormData, selectedPlan, userType } = useAppStore();
+
+  useEffect(() => {
+    if (!user || !quoteFormData || !selectedPlan) {
+      navigate('/');
+    }
+  }, [user, quoteFormData, selectedPlan, navigate]);
+
+  if (!user || !quoteFormData || !selectedPlan) {
+    return null;
+  }
+
   return (
     <div className='font-lato bg-white pb-10'>
       <Breadcrumb
@@ -15,7 +31,12 @@ function SummaryPage() {
           Resumen del seguro
         </h1>
 
-        <CardSummary />
+        <CardSummary
+          user={user}
+          formData={quoteFormData}
+          selectedPlan={selectedPlan}
+          userType={userType}
+        />
       </div>
     </div>
   );
