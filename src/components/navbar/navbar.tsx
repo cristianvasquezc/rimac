@@ -3,7 +3,7 @@ import { Logo } from '../Icons';
 
 export const Navbar = () => {
   return (
-    <nav className='w-full  bg-white px-5'>
+    <nav className='w-full  bg-white px-6'>
       <div className='w-full max-w-6xl flex items-center justify-between py-5 mx-auto'>
         <a href='/'>
           <Logo />
