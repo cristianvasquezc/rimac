@@ -17,7 +17,7 @@ export const DocumentSelect = ({ value, onChange }: DocumentSelectProps) => {
     <Select
       value={value}
       onValueChange={onChange}>
-      <SelectTrigger className='w-38 rounded-r-none border-r-0 text-foreground'>
+      <SelectTrigger className='w-38 rounded-r-none border-r-0 bg-white text-foreground'>
         <SelectValue placeholder='Seleccionar' />
       </SelectTrigger>
       <SelectContent>
