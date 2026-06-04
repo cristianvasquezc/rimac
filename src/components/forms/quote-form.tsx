@@ -21,7 +21,8 @@ export const QuoteForm = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
-      dni: '',
+      documentType: 'dni',
+      document: '',
       phone: '',
       privacyPolicy: false,
       marketingConsent: false,
@@ -41,20 +42,29 @@ export const QuoteForm = () => {
         className='space-y-6'>
         <FieldGroup className='gap-4'>
           <Controller
-            name='dni'
+            name='document'
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel
-                  htmlFor='quote-form-dni'
+                  htmlFor='quote-form-document'
                   className='font-semibold'>
                   Documento
                 </FieldLabel>
                 <div className='flex'>
-                  <DocumentSelect />
+                  <Controller
+                    name='documentType'
+                    control={form.control}
+                    render={({ field: selectField }) => (
+                      <DocumentSelect
+                        value={selectField.value}
+                        onChange={selectField.onChange}
+                      />
+                    )}
+                  />
                   <Input
                     {...field}
-                    id='quote-form-dni'
+                    id='quote-form-document'
                     aria-invalid={fieldState.invalid}
                     className='rounded-l-none'
                   />
