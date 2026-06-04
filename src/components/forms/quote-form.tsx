@@ -64,6 +64,11 @@ export const QuoteForm = () => {
                   />
                   <Input
                     {...field}
+                    inputMode='numeric'
+                    pattern="[0-9]*"
+                    onChange={(e) => {
+                      field.onChange(e.target.value.replace(/\D/g, ''));
+                    }}
                     id='quote-form-document'
                     aria-invalid={fieldState.invalid}
                     className='rounded-l-none bg-white'
@@ -87,6 +92,11 @@ export const QuoteForm = () => {
                 </FieldLabel>
                 <Input
                   {...field}
+                  inputMode='numeric'
+                  pattern="[0-9]*"
+                  onChange={(e) => {
+                    field.onChange(e.target.value.replace(/\D/g, ''));
+                  }}
                   id='quote-form-phone'
                   aria-invalid={fieldState.invalid}
                   className='bg-white'
