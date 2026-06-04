@@ -16,7 +16,8 @@ export interface PlansResponse {
 }
 
 export interface QuoteFormData {
-  dni: string;
+  documentType: 'dni' | 'ce';
+  document: string;
   phone: string;
   privacyPolicy: boolean;
   marketingConsent?: boolean;
