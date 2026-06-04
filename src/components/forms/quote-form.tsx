@@ -4,11 +4,13 @@ import {
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field';
+
 import { useUser } from '@/hooks/useApi';
 import { quoteFormSchema } from '@/schemas/quote-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';
+import { DocumentSelect } from '../select/document-select';
 import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
 import { Input } from '../ui/input';
@@ -48,11 +50,15 @@ export const QuoteForm = () => {
                   className='font-semibold'>
                   Documento
                 </FieldLabel>
-                <Input
-                  {...field}
-                  id='quote-form-dni'
-                  aria-invalid={fieldState.invalid}
-                />
+                <div className='flex'>
+                  <DocumentSelect />
+                  <Input
+                    {...field}
+                    id='quote-form-dni'
+                    aria-invalid={fieldState.invalid}
+                    className='rounded-l-none'
+                  />
+                </div>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
