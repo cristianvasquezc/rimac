@@ -20,7 +20,7 @@ export const PlanCard = ({
   const hasDiscount = discount > 0;
 
   return (
-    <div className='w-full max-w-[288px] bg-white rounded-3xl pt-10 pb-12.5 px-8 shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)] flex flex-col gap-10'>
+    <div className='w-full max-w-75 bg-white rounded-3xl pt-10 pb-12.5 px-8 shadow-[0px_0px_20px_3px_rgba(0,0,0,0.1)] flex flex-col gap-10'>
       <div className='space-y-6'>
         <div className='space-y-2'>
           <div className='h-6'>
@@ -63,7 +63,7 @@ export const PlanCard = ({
 
         <Separator />
 
-        <ul className='list-disc list-inside space-y-2'>
+        <ul className='list-disc list-inside space-y-6'>
           {plan.description.map((item, index) => (
             <li
               key={index}
