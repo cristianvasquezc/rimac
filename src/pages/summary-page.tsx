@@ -19,7 +19,7 @@ function SummaryPage() {
   }
 
   return (
-    <div className='font-lato bg-white pb-10'>
+    <div className='font-lato pb-10'>
       <Breadcrumb
         currentStep={2}
         href='/planes'

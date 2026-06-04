@@ -46,7 +46,7 @@ function PlansPage() {
   if (!user) return null;
 
   return (
-    <div className='font-lato bg-white pb-10'>
+    <div className='font-lato pb-10'>
       <Breadcrumb
         currentStep={1}
         href='/'

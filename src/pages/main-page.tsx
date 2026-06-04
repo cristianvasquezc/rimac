@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useAppStore } from '../store/useAppStore';
 import { QuoteForm } from '../components/forms/quote-form';
 import { Separator } from '../components/ui/separator';
+import { useAppStore } from '../store/useAppStore';
 
 function MainPage() {
   const reset = useAppStore((state) => state.reset);
@@ -11,7 +11,7 @@ function MainPage() {
   }, [reset]);
 
   return (
-    <div className='w-full bg-white px-6'>
+    <div className='w-full px-6'>
       <div className='flex w-full max-w-6xl mx-auto md:pt-8 pb-8'>
         <div className='w-full max-w-120 hidden md:block'>
           <img
