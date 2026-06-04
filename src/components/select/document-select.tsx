@@ -7,10 +7,17 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-export const DocumentSelect = () => {
+interface DocumentSelectProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+export const DocumentSelect = ({ value, onChange }: DocumentSelectProps) => {
   return (
-    <Select>
-      <SelectTrigger className='w-38 rounded-r-none border-r-0'>
+    <Select
+      value={value}
+      onValueChange={onChange}>
+      <SelectTrigger className='w-38 rounded-r-none border-r-0 text-foreground'>
         <SelectValue placeholder='Seleccionar' />
       </SelectTrigger>
       <SelectContent>
