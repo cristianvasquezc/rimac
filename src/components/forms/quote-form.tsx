@@ -66,7 +66,7 @@ export const QuoteForm = () => {
                     {...field}
                     id='quote-form-document'
                     aria-invalid={fieldState.invalid}
-                    className='rounded-l-none'
+                    className='rounded-l-none bg-white'
                   />
                 </div>
                 {fieldState.invalid && (
@@ -86,9 +86,10 @@ export const QuoteForm = () => {
                   Celular
                 </FieldLabel>
                 <Input
+                  {...field}
                   id='quote-form-phone'
                   aria-invalid={fieldState.invalid}
-                  {...field}
+                  className='bg-white'
                 />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
