@@ -39,7 +39,7 @@ export const CardSummary = ({
           Responsable de pago
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
-          DNI: {formData.dni}
+          {formData.documentType === 'ce' ? 'C.E.' : 'DNI'}: {formData.document}
         </p>
         <p className='font-normal text-[14px] leading-6 tracking-[0.1px]'>
           Celular: {formData.phone}
