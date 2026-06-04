@@ -21,13 +21,13 @@ export const quoteFormSchema = z
         ctx.addIssue({
           code: 'custom',
           message: 'El DNI debe tener exactamente 8 dígitos.',
-          path: ['dni'],
+          path: ['document'],
         });
       } else if (!/^\d+$/.test(data.document)) {
         ctx.addIssue({
           code: 'custom',
           message: 'El DNI debe contener solo números.',
-          path: ['dni'],
+          path: ['document'],
         });
       }
     } else if (data.documentType === 'ce') {
@@ -35,7 +35,7 @@ export const quoteFormSchema = z
         ctx.addIssue({
           code: 'custom',
           message: 'El C.E. debe tener como máximo 10 dígitos.',
-          path: ['dni'],
+          path: ['document'],
         });
       }
     }
