@@ -1,5 +1,5 @@
-import { PlanCard } from '@/components/cards/plan-card';
 import { RadioCard } from '@/components/cards/radio-card';
+import { CarouselPlans } from '@/components/carousel/carousel-plans';
 import { IcAddUserLight, IcProtectionLight } from '@/components/Icons';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
 import { RadioGroup } from '@/components/ui/radio-group';
@@ -88,17 +88,11 @@ function PlansPage() {
             {isLoading ? (
               <p className='text-center'>Cargando planes...</p>
             ) : filteredPlans.length > 0 ? (
-              <div className='flex flex-wrap justify-center gap-6'>
-                {filteredPlans.map((plan, index) => (
-                  <PlanCard
-                    key={plan.name}
-                    plan={plan}
-                    discount={discount}
-                    isRecommended={index === 1}
-                    onSelect={() => handlePlanSelect(plan)}
-                  />
-                ))}
-              </div>
+              <CarouselPlans
+                plans={filteredPlans}
+                discount={discount}
+                onSelect={handlePlanSelect}
+              />
             ) : (
               <p className='text-center text-gray-500'>
                 No hay planes disponibles para tu edad.
