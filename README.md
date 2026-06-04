@@ -38,7 +38,7 @@ Sigue estos sencillos pasos para tener el proyecto ejecutándose localmente:
 Si estás en una terminal de Git:
 
 ```bash
-git clone https://github.com/cristianvasquezc/rimac
+git clone https://github.com/cristianvasquezc/rimac.git
 
 cd rimac
 ```
